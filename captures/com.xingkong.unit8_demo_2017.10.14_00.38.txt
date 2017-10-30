@@ -1,0 +1,49 @@
+TASK com.xingkong.unit8_demo id=65
+  ACTIVITY com.xingkong.unit8_demo/.MainActivity e45f0cb pid=20135
+    Local Activity c1d572 State:
+      mResumed=true mStopped=false mFinished=false
+      mChangingConfigurations=false
+      mCurrentConfig={1.0 460mcc1mnc [zh_CN] ldltr sw360dp w360dp h616dp 480dpi nrml long port finger -keyb/v/h -nav/h s.23 themeId=0}
+      mLoadersStarted=true
+      FragmentManager misc state:
+        mHost=android.app.Activity$HostCallbacks@66ca1e7
+        mContainer=android.app.Activity$HostCallbacks@66ca1e7
+        mCurState=5 mStateSaved=false mDestroyed=false
+    ViewRoot:
+      mAdded=true mRemoved=false
+      mConsumeBatchedInputScheduled=false
+      mConsumeBatchedInputImmediatelyScheduled=false
+      mPendingInputEventCount=0
+      mProcessInputEventsScheduled=false
+      mTraversalScheduled=false      mIsAmbientMode=false
+      android.view.ViewRootImpl$NativePreImeInputStage: mQueueLength=0
+      android.view.ViewRootImpl$ImeInputStage: mQueueLength=0
+      android.view.ViewRootImpl$NativePostImeInputStage: mQueueLength=0
+    Choreographer:
+      mFrameScheduled=false
+      mLastFrameTime=38733620 (21266 ms ago)
+    View Hierarchy:
+      DecorView@f1b0193[MainActivity]
+        android.widget.LinearLayout{3aca5d0 V.E...... ........ 0,0-1080,1920}
+          android.view.ViewStub{53f8194 G.E...... ......I. 0,0-0,0 #10203f3 android:id/action_mode_bar_stub}
+          android.widget.FrameLayout{9e829c9 V.E...... ........ 0,72-1080,1920}
+            android.support.v7.widget.ActionBarOverlayLayout{f0b38ce V.E...... ........ 0,0-1080,1848 #7f0b004d app:id/decor_content_parent}
+              android.support.v7.widget.ContentFrameLayout{6a23ef V.E...... ........ 0,168-1080,1848 #1020002 android:id/content}
+                android.widget.LinearLayout{dfe4efc V.E...... ........ 0,0-1080,1680}
+                  android.support.v7.widget.AppCompatButton{4409985 VFED..C.. ........ 0,0-282,144 #7f0b0060 app:id/btn_simple}
+                  android.support.v7.widget.AppCompatButton{2613da VFED..C.. ........ 0,144-264,288}
+              android.support.v7.widget.ActionBarContainer{edf100b V.ED..... ........ 0,0-1080,168 #7f0b004e app:id/action_bar_container}
+                android.support.v7.widget.Toolbar{f5f5ee8 V.E...... ........ 0,0-1080,168 #7f0b004f app:id/action_bar}
+                  android.support.v7.widget.AppCompatTextView{9f64901 V.ED..... ........ 48,44-404,124}
+                  android.support.v7.widget.ActionMenuView{fe193a6 V.E...... ......ID 1080,0-1080,168}
+                android.support.v7.widget.ActionBarContextView{1fd743d G.E...... ......I. 0,0-0,0 #7f0b0050 app:id/action_context_bar}
+        android.view.View{47dcd V.ED..... ........ 0,0-1080,72 #102002f android:id/statusBarBackground}
+    Looper (main, tid 1) {6834432}
+      (Total messages: 0, polling=false, quitting=false)
+    Local FragmentActivity c1d572 State:
+      mCreated=truemResumed=true mStopped=false mReallyStopped=false
+      mLoadersStarted=true
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@5577583
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@5577583
+      mCurState=5 mStateSaved=false mDestroyed=false
