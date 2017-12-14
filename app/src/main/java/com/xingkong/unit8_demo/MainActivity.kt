@@ -63,6 +63,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun v2(view: View) {
+
+    }
+
     /**
      * 打开图片选择
      *
