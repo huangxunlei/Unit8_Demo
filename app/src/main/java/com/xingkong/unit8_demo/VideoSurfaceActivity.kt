@@ -1,48 +1,59 @@
 package com.xingkong.unit8_demo
 
 import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Display
 import android.view.SurfaceHolder
-import android.widget.LinearLayout
-import android.widget.MediaController
-import android.widget.VideoView
+import android.view.SurfaceView
+import android.widget.FrameLayout
+import java.io.IOException
+
 
 class VideoSurfaceActivity : AppCompatActivity(), MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnVideoSizeChangedListener, SurfaceHolder.Callback {
-
-    private var mVideoView: VideoView? = null
-    private var currDisplay: Display? = null
+    private var holder: SurfaceHolder? = null
     private var player: MediaPlayer? = null
+    private var currDisplay: Display? = null
     private var vWidth: Int = 0
     private var vHeight: Int = 0
+    var surface: SurfaceView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_surface)
+        //给SurfaceView添加CallBack监听
 
-        //本地的视频 需要在手机SD卡根目录添加一个 fl1234.mp4 视频
-        val videoUrl1 = Environment.getExternalStorageDirectory().path + "/test.mp4"
+        surface = (findViewById(R.id.video_surface) as SurfaceView?)!!
+        holder = surface!!.holder as SurfaceHolder
+        holder!!.addCallback(this)
+        //为了可以播放视频或者使用Camera预览，我们需要指定其Buffer类型
+        holder!!!!.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS)
 
-        //网络视频
-        val videoUrl2 = "http://113.105.248.47/10/o/n/g/t/ongtektcomqnegldixzxajpuvqhdmc/sh.yinyuetai.com/06A90160456424393C99A40234DCCF4D.mp4"
+        //下面开始实例化MediaPlayer对象
+        player = MediaPlayer()
+        player!!!!.setOnCompletionListener(this)
+        player!!!!.setOnErrorListener(this)
+        player!!!!.setOnInfoListener(this)
+        player!!!!.setOnPreparedListener(this)
+        player!!!!.setOnSeekCompleteListener(this)
+        player!!!!.setOnVideoSizeChangedListener(this)
+        Log.v("Begin:::", "surfaceDestroyed called")
+        //然后指定需要播放文件的路径，初始化MediaPlayer
+        val dataPath = "http://p0ximlbal.bkt.clouddn.com/06A90160456424393C99A40234DCCF4D.mp4"
+        try {
+            player!!!!.setDataSource(dataPath)
+            Log.v("Next:::", "surfaceDestroyed called")
+        } catch (e: IllegalArgumentException) {
+            e.printStackTrace()
+        } catch (e: IllegalStateException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
 
-        val uri = Uri.parse(videoUrl2)
-        mVideoView = findViewById(R.id.videoView) as VideoView
-        //设置视频控制器
-        mVideoView!!.setMediaController(MediaController(this))
-
-        //播放完成回调
-        mVideoView!!.setOnCompletionListener(this)
-
-        //设置视频路径
-        mVideoView!!.setVideoURI(uri)
-
-        //开始播放视频
-        mVideoView!!.start()
+        //然后，我们取得当前Display对象
+        currDisplay = this.windowManager.defaultDisplay
     }
 
 
@@ -94,7 +105,7 @@ class VideoSurfaceActivity : AppCompatActivity(), MediaPlayer.OnCompletionListen
             vHeight = Math.ceil((vHeight.toFloat() / ratio).toDouble()).toInt()
 
             //设置surfaceView的布局参数
-            mVideoView!!.layoutParams = LinearLayout.LayoutParams(vWidth, vHeight)
+            surface!!.layoutParams = FrameLayout.LayoutParams(vWidth, vHeight)
 
             //然后开始播放视频
 

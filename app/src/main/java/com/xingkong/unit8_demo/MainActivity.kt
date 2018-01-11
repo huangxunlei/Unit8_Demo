@@ -93,6 +93,6 @@ class MainActivity : AppCompatActivity() {
      * @param view
      */
     fun openVideo(view: View) {
-        startActivity(Intent(this, VideoSurfaceActivity::class.java))
+        startActivity(Intent(this, VideoTestActivity::class.java))
     }
 }
